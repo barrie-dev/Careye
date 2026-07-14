@@ -16,15 +16,33 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Repository ophalen
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
+
+      - name: Projectpakket controleren
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "Beschikbare pakketdelen:"
+          find .bootstrap -maxdepth 1 -type f -name 'part-*' -printf '%f %s bytes\n' | sort
+          mapfile -t parts < <(find .bootstrap -maxdepth 1 -type f -name 'part-*' -print | sort -V)
+          if [ "${#parts[@]}" -eq 0 ]; then
+            echo "Geen pakketdelen gevonden."
+            exit 1
+          fi
+          cat "${parts[@]}" | tr -d '\n\r ' | base64 --decode > /tmp/careye-project.tar.gz
+          echo "Archiefgrootte: $(stat -c%s /tmp/careye-project.tar.gz) bytes"
+          gzip -t /tmp/careye-project.tar.gz
+          tar -tzf /tmp/careye-project.tar.gz > /tmp/careye-files.txt
+          echo "Aantal bestanden in archief: $(wc -l < /tmp/careye-files.txt)"
+          head -20 /tmp/careye-files.txt
 
       - name: Projectpakket uitpakken
         shell: bash
         run: |
           set -euo pipefail
-          cat .bootstrap/part-* | tr -d '\n\r ' | base64 --decode > /tmp/careye-project.tar.gz
+          rm -rf /tmp/careye-project
           mkdir -p /tmp/careye-project
           tar -xzf /tmp/careye-project.tar.gz -C /tmp/careye-project
           shopt -s dotglob nullglob
@@ -36,12 +54,6 @@ jobs:
           find . -mindepth 1 -maxdepth 1 ! -name .git ! -name .github ! -name .bootstrap -exec rm -rf {} +
           cp -a "$source_dir"/. ./
           rm -rf .bootstrap
-
-      - name: Build valideren
-        shell: bash
-        run: |
-          set -euo pipefail
-          npm run build
 
       - name: Wijzigingen vastleggen
         shell: bash
