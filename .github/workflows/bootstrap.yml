@@ -1,4 +1,4 @@
-name: Pak Careye website uit
+name: Publiceer Careye website
 
 on:
   push:
@@ -24,26 +24,24 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          test -d .bootstrap || exit 0
           cat .bootstrap/part-* | tr -d '\n\r ' | base64 --decode > /tmp/careye-project.tar.gz
           mkdir -p /tmp/careye-project
           tar -xzf /tmp/careye-project.tar.gz -C /tmp/careye-project
-
           shopt -s dotglob nullglob
           entries=(/tmp/careye-project/*)
           source_dir=/tmp/careye-project
           if [ "${#entries[@]}" -eq 1 ] && [ -d "${entries[0]}" ]; then
             source_dir="${entries[0]}"
           fi
-
-          find . -mindepth 1 -maxdepth 1 \
-            ! -name .git \
-            ! -name .github \
-            ! -name .bootstrap \
-            -exec rm -rf {} +
-
+          find . -mindepth 1 -maxdepth 1 ! -name .git ! -name .github ! -name .bootstrap -exec rm -rf {} +
           cp -a "$source_dir"/. ./
           rm -rf .bootstrap
+
+      - name: Build valideren
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm run build
 
       - name: Wijzigingen vastleggen
         shell: bash
@@ -56,5 +54,5 @@ jobs:
             echo "Geen wijzigingen om vast te leggen."
             exit 0
           fi
-          git commit -m "Publiceer volledige Careye CMS-website"
+          git commit -m "Publiceer vernieuwde Careye website"
           git push origin main
