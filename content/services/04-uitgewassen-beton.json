@@ -1,0 +1,17 @@
+{
+  "title": "Uitgewassen beton",
+  "slug": "uitgewassen",
+  "order": 4,
+  "published": true,
+  "show_on_home": true,
+  "short_title": "Uitgewassen beton",
+  "short_text": "Een robuuste buitenafwerking met zichtbare granulaten, kleurkeuzes en een eigen karakter.",
+  "index_label": "Uitgewassen beton",
+  "description_1": "Bij uitgewassen beton worden granulaten zichtbaar in het oppervlak. Daardoor ontstaat een robuuste en natuurlijke textuur die bijzonder geschikt is voor opritten, paden, pleinen en terrassen.",
+  "description_2": "De uiteindelijke uitstraling wordt bepaald door de gekozen granulaten, kleur, korrelgrootte en intensiteit van het uitwassen.",
+  "image": "https://static.wixstatic.com/media/7c9e6b_43db7157ce3a4332bc33e7a57a77c7f1~mv2.jpg/v1/fill/w_1101%2Ch_734%2Cal_c%2Cq_85%2Cusm_0.66_1.00_0.01%2Cenc_avif%2Cquality_auto/studio_VOLT-09264.jpg",
+  "image_alt": "Uitgewassen beton",
+  "fallback": "assets/images/aggregate-fallback.svg",
+  "features": ["Zichtbare granulaten", "Kleurkeuze", "Antislip karakter", "Buitenoplossing"],
+  "button_label": "Bespreek uw afwerking"
+}

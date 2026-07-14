@@ -1,0 +1,987 @@
+media:
+  - name: images
+    label: Afbeeldingen
+    input: assets/uploads
+    output: /assets/uploads
+    rename: safe
+    categories: [image]
+    extensions: [jpg, jpeg, png, webp, avif, svg]
+
+settings:
+  content:
+    merge: true
+  commit:
+    templates:
+      create: "Content toegevoegd: {filename}"
+      update: "Content aangepast: {filename}"
+      delete: "Content verwijderd: {filename}"
+
+components:
+  seo:
+    type: object
+    label: SEO en zoekmachines
+    fields:
+      - name: meta_title
+        label: Paginatitel voor Google
+        type: string
+        required: true
+        options:
+          maxlength: 65
+      - name: meta_description
+        label: Beschrijving voor Google
+        type: text
+        required: true
+        options:
+          maxlength: 170
+  page_hero:
+    type: object
+    label: Bovenste paginablok
+    fields:
+      - name: eyebrow
+        label: Kleine boventitel
+        type: string
+      - name: title
+        label: Grote titel
+        type: string
+        required: true
+      - name: intro
+        label: Inleidende tekst
+        type: text
+        required: true
+      - name: hero_image
+        label: Grote afbeelding
+        type: image
+        required: true
+        options:
+          media: images
+      - name: hero_image_alt
+        label: Beschrijving van de afbeelding
+        type: string
+        required: true
+        description: Beschrijf kort wat op de foto staat. Dit is belangrijk voor toegankelijkheid en Google.
+
+content:
+  - name: general
+    label: Algemene instellingen
+    type: group
+    items:
+      - name: site
+        label: Bedrijf, contact en footer
+        type: file
+        path: content/site.json
+        format: json
+        fields:
+          - name: company_name
+            label: Bedrijfsnaam
+            type: string
+            required: true
+          - name: legal_name
+            label: Juridische bedrijfsnaam
+            type: string
+            required: true
+          - name: utility_note
+            label: Tekst bovenaan de website
+            type: string
+          - name: phone_display
+            label: Telefoonnummer zoals bezoekers het zien
+            type: string
+            required: true
+          - name: phone_href
+            label: Telefoonnummer voor de belknop
+            type: string
+            required: true
+            description: Gebruik het internationale formaat, bijvoorbeeld +3257352939.
+          - name: email
+            label: Algemeen e-mailadres
+            type: string
+            required: true
+          - name: quote_email
+            label: Algemeen e-mailadres voor alle websiteaanvragen
+            type: string
+            required: true
+          - name: jobs_email
+            label: E-mailadres voor sollicitaties
+            type: string
+            required: true
+          - name: vat
+            label: Btw-nummer
+            type: string
+          - name: logo_light
+            label: Wit logo voor donkere achtergrond
+            type: image
+            required: true
+            options:
+              media: images
+          - name: logo_dark
+            label: Donker logo voor lichte achtergrond
+            type: image
+            required: true
+            options:
+              media: images
+          - name: favicon
+            label: Browsericoon
+            type: image
+            required: true
+            options:
+              media: images
+          - name: footer_kicker
+            label: Kleine titel in de footer
+            type: string
+          - name: footer_title
+            label: Grote titel in de footer
+            type: string
+          - name: footer_intro
+            label: Bedrijfstekst in de footer
+            type: text
+          - name: footer_button
+            label: Tekst op de offerteknop
+            type: string
+          - name: locations
+            label: Vestigingen
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{name}"
+            fields:
+              - name: name
+                label: Plaats
+                type: string
+                required: true
+              - name: address_line_1
+                label: Straat en nummer
+                type: string
+                required: true
+              - name: address_line_2
+                label: Postcode en plaats
+                type: string
+                required: true
+              - name: maps_url
+                label: Link naar Google Maps
+                type: string
+                required: true
+          - name: socials
+            label: Sociale media
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{label}"
+            fields:
+              - name: label
+                label: Naam
+                type: string
+                required: true
+              - name: url
+                label: Webadres
+                type: string
+                required: true
+
+  - name: pages
+    label: Pagina's
+    type: group
+    items:
+      - name: home
+        label: Homepage
+        type: file
+        path: content/pages/home.json
+        format: json
+        fields:
+          - name: meta_title
+            label: Paginatitel voor Google
+            type: string
+            required: true
+          - name: meta_description
+            label: Beschrijving voor Google
+            type: text
+            required: true
+          - name: hero_eyebrow
+            label: Kleine titel bovenaan
+            type: string
+          - name: hero_title
+            label: Grote hoofdtitel
+            type: string
+            required: true
+          - name: hero_emphasis
+            label: Woorden die cursief geel worden
+            type: string
+            description: Deze tekst moet exact voorkomen in de grote hoofdtitel.
+          - name: hero_text
+            label: Inleidende tekst
+            type: text
+            required: true
+          - name: hero_image
+            label: Grote achtergrondfoto
+            type: image
+            required: true
+            options:
+              media: images
+          - name: hero_image_alt
+            label: Beschrijving van de foto
+            type: string
+            required: true
+          - name: hero_primary_button
+            label: Tekst eerste knop
+            type: string
+          - name: hero_secondary_button
+            label: Tekst tweede knop
+            type: string
+          - name: hero_panel_title
+            label: Titel informatieblok
+            type: string
+          - name: hero_panel_text
+            label: Tekst informatieblok
+            type: text
+          - name: hero_panel_items
+            label: Punten in het informatieblok
+            type: string
+            list: true
+          - name: trust_items
+            label: Kerncijfers en troeven
+            type: object
+            list:
+              max: 4
+              collapsible:
+                collapsed: true
+                summary: "{title}"
+            fields:
+              - name: title
+                label: Grote tekst
+                type: string
+              - name: text
+                label: Kleine tekst
+                type: string
+          - name: services_kicker
+            label: Kleine titel boven diensten
+            type: string
+          - name: services_title
+            label: Titel diensten
+            type: string
+          - name: services_text
+            label: Tekst diensten
+            type: text
+          - name: about_kicker
+            label: Kleine titel boven bedrijfstekst
+            type: string
+          - name: about_title
+            label: Titel bedrijfstekst
+            type: string
+          - name: about_text_1
+            label: Eerste alinea
+            type: text
+          - name: about_text_2
+            label: Tweede alinea
+            type: text
+          - name: about_image
+            label: Foto bij bedrijfstekst
+            type: image
+            options:
+              media: images
+          - name: about_image_alt
+            label: Beschrijving van de foto
+            type: string
+          - name: about_features
+            label: Troeven onder de bedrijfstekst
+            type: string
+            list: true
+          - name: spotlight_kicker
+            label: Kleine titel boven spotlight
+            type: string
+          - name: spotlight_title
+            label: Titel spotlight
+            type: string
+          - name: spotlight_intro
+            label: Inleiding spotlight
+            type: text
+          - name: process_kicker
+            label: Kleine titel boven werkwijze
+            type: string
+          - name: process_title
+            label: Titel werkwijze
+            type: string
+          - name: process_text
+            label: Inleiding werkwijze
+            type: text
+          - name: process_steps
+            label: Stappen van de werkwijze
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{title}"
+            fields:
+              - name: title
+                label: Stap
+                type: string
+              - name: text
+                label: Uitleg
+                type: text
+          - name: cta_title
+            label: Titel gele contactstrook
+            type: string
+          - name: cta_text
+            label: Tekst gele contactstrook
+            type: text
+          - name: cta_button
+            label: Tekst op de knop
+            type: string
+          - name: jobs_kicker
+            label: Kleine titel boven vacatures
+            type: string
+          - name: jobs_title
+            label: Titel vacatures
+            type: string
+          - name: jobs_text
+            label: Tekst vacatures
+            type: text
+          - name: jobs_button
+            label: Tekst vacatureknop
+            type: string
+
+      - name: services_page
+        label: Dienstenpagina
+        type: file
+        path: content/pages/diensten.json
+        format: json
+        fields:
+          - name: meta_title
+            label: Paginatitel voor Google
+            type: string
+          - name: meta_description
+            label: Beschrijving voor Google
+            type: text
+          - name: eyebrow
+            label: Kleine boventitel
+            type: string
+          - name: title
+            label: Grote titel
+            type: string
+          - name: intro
+            label: Inleidende tekst
+            type: text
+          - name: hero_image
+            label: Grote afbeelding
+            type: image
+            options:
+              media: images
+          - name: hero_image_alt
+            label: Beschrijving van de afbeelding
+            type: string
+          - name: cta_title
+            label: Titel onderaan
+            type: string
+          - name: cta_text
+            label: Tekst onderaan
+            type: text
+          - name: cta_button
+            label: Tekst op de knop
+            type: string
+
+      - name: projects_page
+        label: Projectenpagina
+        type: file
+        path: content/pages/projecten.json
+        format: json
+        fields:
+          - name: meta_title
+            label: Paginatitel voor Google
+            type: string
+          - name: meta_description
+            label: Beschrijving voor Google
+            type: text
+          - name: eyebrow
+            label: Kleine boventitel
+            type: string
+          - name: title
+            label: Grote titel
+            type: string
+          - name: intro
+            label: Inleidende tekst
+            type: text
+          - name: hero_image
+            label: Grote afbeelding
+            type: image
+            options:
+              media: images
+          - name: hero_image_alt
+            label: Beschrijving van de afbeelding
+            type: string
+          - name: section_kicker
+            label: Kleine titel boven projecten
+            type: string
+          - name: section_title
+            label: Titel boven projecten
+            type: string
+          - name: cta_kicker
+            label: Kleine titel onderaan
+            type: string
+          - name: cta_title
+            label: Titel onderaan
+            type: string
+          - name: cta_text
+            label: Tekst onderaan
+            type: text
+          - name: cta_button
+            label: Tekst op de knop
+            type: string
+          - name: cta_image
+            label: Afbeelding onderaan
+            type: image
+            options:
+              media: images
+          - name: cta_image_alt
+            label: Beschrijving van de afbeelding
+            type: string
+
+      - name: about_page
+        label: Over Careye
+        type: file
+        path: content/pages/over-ons.json
+        format: json
+        fields:
+          - name: meta_title
+            label: Paginatitel voor Google
+            type: string
+          - name: meta_description
+            label: Beschrijving voor Google
+            type: text
+          - name: eyebrow
+            label: Kleine boventitel
+            type: string
+          - name: title
+            label: Grote titel
+            type: string
+          - name: intro
+            label: Inleidende tekst
+            type: text
+          - name: hero_image
+            label: Grote afbeelding
+            type: image
+            options:
+              media: images
+          - name: hero_image_alt
+            label: Beschrijving van de afbeelding
+            type: string
+          - name: story_kicker
+            label: Kleine titel boven het verhaal
+            type: string
+          - name: story_title
+            label: Titel van het verhaal
+            type: string
+          - name: story_paragraphs
+            label: Alinea's van het verhaal
+            type: text
+            list: true
+          - name: story_image
+            label: Foto bij het verhaal
+            type: image
+            options:
+              media: images
+          - name: story_image_alt
+            label: Beschrijving van de foto
+            type: string
+          - name: values_kicker
+            label: Kleine titel boven waarden
+            type: string
+          - name: values_title
+            label: Titel waarden
+            type: string
+          - name: values_text
+            label: Inleiding waarden
+            type: text
+          - name: values
+            label: Waarden
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{title}"
+            fields:
+              - name: title
+                label: Naam
+                type: string
+              - name: text
+                label: Uitleg
+                type: text
+          - name: locations_kicker
+            label: Kleine titel boven vestigingen
+            type: string
+          - name: locations_title
+            label: Titel vestigingen
+            type: string
+          - name: locations_text
+            label: Tekst vestigingen
+            type: text
+          - name: cta_title
+            label: Titel onderaan
+            type: string
+          - name: cta_button
+            label: Tekst op de knop
+            type: string
+
+      - name: jobs_page
+        label: Vacaturepagina
+        type: file
+        path: content/pages/vacatures.json
+        format: json
+        fields:
+          - name: meta_title
+            label: Paginatitel voor Google
+            type: string
+          - name: meta_description
+            label: Beschrijving voor Google
+            type: text
+          - name: eyebrow
+            label: Kleine boventitel
+            type: string
+          - name: title
+            label: Grote titel
+            type: string
+          - name: intro
+            label: Inleidende tekst
+            type: text
+          - name: hero_image
+            label: Grote afbeelding
+            type: image
+            options:
+              media: images
+          - name: hero_image_alt
+            label: Beschrijving van de afbeelding
+            type: string
+          - name: section_kicker
+            label: Kleine titel boven vacatures
+            type: string
+          - name: section_title
+            label: Titel boven vacatures
+            type: string
+          - name: section_text
+            label: Tekst boven vacatures
+            type: text
+          - name: closing_kicker
+            label: Kleine titel onderaan
+            type: string
+          - name: closing_title
+            label: Titel onderaan
+            type: string
+          - name: closing_text
+            label: Tekst onderaan
+            type: text
+          - name: closing_button
+            label: Tekst op de sollicitatieknop
+            type: string
+
+      - name: contact_page
+        label: Contactpagina
+        type: file
+        path: content/pages/contact.json
+        format: json
+        fields:
+          - name: meta_title
+            label: Paginatitel voor Google
+            type: string
+          - name: meta_description
+            label: Beschrijving voor Google
+            type: text
+          - name: eyebrow
+            label: Kleine boventitel
+            type: string
+          - name: title
+            label: Grote titel
+            type: string
+          - name: intro
+            label: Inleidende tekst
+            type: text
+          - name: hero_image
+            label: Grote afbeelding
+            type: image
+            options:
+              media: images
+          - name: hero_image_alt
+            label: Beschrijving van de afbeelding
+            type: string
+          - name: contact_kicker
+            label: Kleine titel boven contactgegevens
+            type: string
+          - name: contact_title
+            label: Titel boven contactgegevens
+            type: string
+          - name: help_title
+            label: Titel voor praktische informatie
+            type: string
+          - name: help_text
+            label: Praktische informatie
+            type: text
+          - name: form_title
+            label: Titel van het formulier
+            type: string
+          - name: form_intro
+            label: Uitleg onder het formulier
+            type: text
+          - name: form_subject
+            label: Standaard onderwerp van de e-mail
+            type: string
+          - name: form_placeholder
+            label: Hulptekst in het grote tekstveld
+            type: text
+          - name: locations_kicker
+            label: Kleine titel boven vestigingen
+            type: string
+          - name: locations_title
+            label: Titel vestigingen
+            type: string
+          - name: locations_text
+            label: Tekst vestigingen
+            type: text
+
+  - name: managed_content
+    label: Projecten, diensten en vacatures
+    type: group
+    items:
+      - name: projects
+        label: Projecten
+        type: collection
+        path: content/projects
+        format: json
+        filename: "{order}-{title}.json"
+        view:
+          fields: [title, category_label, published, spotlight, order]
+          primary: title
+          sort: [order, title, category_label]
+          search: [title, category_label]
+          default:
+            sort: order
+            order: asc
+        fields:
+          - name: title
+            label: Projecttitel
+            type: string
+            required: true
+          - name: order
+            label: Volgorde
+            type: number
+            required: true
+            options:
+              min: 1
+          - name: published
+            label: Zichtbaar op de website
+            type: boolean
+            default: true
+          - name: category
+            label: Technische categorie
+            type: select
+            required: true
+            options:
+              values:
+                - name: industrie
+                  label: Industrie
+                - name: agro
+                  label: Agro
+                - name: buiten
+                  label: Buiten
+                - name: constructie
+                  label: Constructie
+          - name: category_label
+            label: Categorie zoals bezoekers ze zien
+            type: string
+            required: true
+          - name: image
+            label: Projectfoto
+            type: image
+            required: true
+            options:
+              media: images
+          - name: image_alt
+            label: Beschrijving van de foto
+            type: string
+            required: true
+          - name: fallback
+            label: Technische reserveafbeelding
+            type: string
+            hidden: true
+          - name: spotlight
+            label: Toon als groot spotlightproject op de homepage
+            type: boolean
+            default: false
+          - name: spotlight_heading
+            label: Grote titel in de spotlight
+            type: string
+          - name: spotlight_text
+            label: Tekst in de spotlight
+            type: text
+          - name: application
+            label: Toepassing
+            type: string
+          - name: finish
+            label: Afwerking
+            type: string
+          - name: execution
+            label: Uitvoering
+            type: string
+
+      - name: services
+        label: Diensten
+        type: collection
+        path: content/services
+        format: json
+        filename: "{order}-{title}.json"
+        view:
+          fields: [title, published, show_on_home, order]
+          primary: title
+          sort: [order, title]
+          search: [title]
+          default:
+            sort: order
+            order: asc
+        fields:
+          - name: title
+            label: Volledige titel
+            type: string
+            required: true
+          - name: slug
+            label: Technische linknaam
+            type: string
+            required: true
+            pattern:
+              regex: "^[a-z0-9-]+$"
+              message: Gebruik alleen kleine letters, cijfers en koppeltekens.
+          - name: order
+            label: Volgorde
+            type: number
+            required: true
+            options:
+              min: 1
+          - name: published
+            label: Zichtbaar op de dienstenpagina
+            type: boolean
+            default: true
+          - name: show_on_home
+            label: Toon op de homepage
+            type: boolean
+            default: true
+          - name: short_title
+            label: Korte titel op de homepage
+            type: string
+          - name: short_text
+            label: Korte tekst op de homepage
+            type: text
+          - name: index_label
+            label: Kleine categorienaam op de dienstenpagina
+            type: string
+          - name: description_1
+            label: Eerste alinea
+            type: text
+          - name: description_2
+            label: Tweede alinea
+            type: text
+          - name: image
+            label: Afbeelding
+            type: image
+            required: true
+            options:
+              media: images
+          - name: image_alt
+            label: Beschrijving van de afbeelding
+            type: string
+          - name: fallback
+            label: Technische reserveafbeelding
+            type: string
+            hidden: true
+          - name: features
+            label: Kenmerken
+            type: string
+            list: true
+          - name: button_label
+            label: Tekst op de contactknop
+            type: string
+
+      - name: jobs
+        label: Vacatures
+        type: collection
+        path: content/jobs
+        format: json
+        filename: "{order}-{slug}.json"
+        view:
+          fields: [title, category, location, published, order]
+          primary: title
+          sort: [order, title]
+          search: [title, category, location]
+          default:
+            sort: order
+            order: asc
+        fields:
+          - name: title
+            label: Functietitel
+            type: string
+            required: true
+          - name: slug
+            label: Linknaam
+            type: string
+            required: true
+            pattern:
+              regex: "^[a-z0-9-]+$"
+              message: Gebruik alleen kleine letters, cijfers en koppeltekens.
+          - name: order
+            label: Volgorde
+            type: number
+            required: true
+            options:
+              min: 1
+          - name: published
+            label: Vacature staat open
+            type: boolean
+            default: true
+          - name: category
+            label: Korte functiegroep
+            type: string
+            required: true
+          - name: location
+            label: Werklocatie
+            type: string
+            required: true
+          - name: employment_type
+            label: Contracttype
+            type: string
+            required: true
+          - name: summary
+            label: Korte omschrijving op het vacatureoverzicht
+            type: text
+            required: true
+          - name: eyebrow
+            label: Kleine boventitel op de detailpagina
+            type: string
+            default: Vacature
+          - name: intro
+            label: Inleiding van de vacature
+            type: text
+            required: true
+          - name: image
+            label: Grote vacatureafbeelding
+            type: image
+            required: true
+            options:
+              media: images
+          - name: image_alt
+            label: Beschrijving van de afbeelding
+            type: string
+            required: true
+          - name: responsibilities_title
+            label: Titel boven taken
+            type: string
+            default: Uw taken
+          - name: responsibilities
+            label: Taken en verantwoordelijkheden
+            type: string
+            list: true
+            required: true
+          - name: profile_title
+            label: Titel boven profiel
+            type: string
+            default: Wie we zoeken
+          - name: profile
+            label: Gezocht profiel
+            type: string
+            list: true
+            required: true
+          - name: offer_title
+            label: Titel boven aanbod
+            type: string
+            default: Wat Careye biedt
+          - name: offer
+            label: Aanbod
+            type: string
+            list: true
+            required: true
+          - name: closing_text
+            label: Tekst boven het sollicitatieformulier
+            type: text
+            required: true
+          - name: button_label
+            label: Tekst op de vacatureknop
+            type: string
+            default: Bekijk de vacature
+
+  - name: legal
+    label: Juridische pagina's
+    type: group
+    items:
+      - name: terms
+        label: Algemene voorwaarden
+        type: file
+        path: content/pages/algemene-voorwaarden.json
+        format: json
+        fields:
+          - name: meta_title
+            label: Paginatitel voor Google
+            type: string
+          - name: meta_description
+            label: Beschrijving voor Google
+            type: text
+          - name: eyebrow
+            label: Kleine boventitel
+            type: string
+          - name: title
+            label: Grote titel
+            type: string
+          - name: intro
+            label: Inleidende tekst
+            type: text
+          - name: body
+            label: Volledige inhoud
+            type: rich-text
+            options:
+              format: html
+              media: images
+      - name: privacy
+        label: Privacyverklaring
+        type: file
+        path: content/pages/privacy.json
+        format: json
+        fields:
+          - name: meta_title
+            label: Paginatitel voor Google
+            type: string
+          - name: meta_description
+            label: Beschrijving voor Google
+            type: text
+          - name: eyebrow
+            label: Kleine boventitel
+            type: string
+          - name: title
+            label: Grote titel
+            type: string
+          - name: intro
+            label: Inleidende tekst
+            type: text
+          - name: body
+            label: Volledige inhoud
+            type: rich-text
+            options:
+              format: html
+              media: images
+      - name: cookies
+        label: Cookieverklaring
+        type: file
+        path: content/pages/cookies.json
+        format: json
+        fields:
+          - name: meta_title
+            label: Paginatitel voor Google
+            type: string
+          - name: meta_description
+            label: Beschrijving voor Google
+            type: text
+          - name: eyebrow
+            label: Kleine boventitel
+            type: string
+          - name: title
+            label: Grote titel
+            type: string
+          - name: intro
+            label: Inleidende tekst
+            type: text
+          - name: body
+            label: Volledige inhoud
+            type: rich-text
+            options:
+              format: html
+              media: images

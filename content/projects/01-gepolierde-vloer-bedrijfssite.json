@@ -1,0 +1,16 @@
+{
+  "title": "Gepolierde vloer voor bedrijfssite",
+  "order": 1,
+  "published": true,
+  "category": "industrie",
+  "category_label": "Industrie",
+  "image": "https://static.wixstatic.com/media/7c9e6b_43db7157ce3a4332bc33e7a57a77c7f1~mv2.jpg/v1/fill/w_1600%2Ch_1067%2Cal_c%2Cq_90%2Cusm_0.66_1.00_0.01%2Cenc_avif%2Cquality_auto/studio_VOLT-09264.jpg",
+  "image_alt": "Machinale afwerking van een grote industriële betonvloer",
+  "fallback": "assets/images/industrial-fallback.svg",
+  "spotlight": true,
+  "spotlight_heading": "Een groot oppervlak, gecontroleerd afgewerkt.",
+  "spotlight_text": "De vloer wordt in verschillende fasen verwerkt en machinaal gepolierd. Zo ontstaat een vlak en sterk resultaat dat geschikt is voor intensief gebruik.",
+  "application": "Bedrijfsvloer",
+  "finish": "Machinaal gepolierd",
+  "execution": "Careye betonteam"
+}

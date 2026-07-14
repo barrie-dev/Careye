@@ -1,0 +1,16 @@
+{
+  "title": "Grootschalige uitvoering met werfcoördinatie",
+  "order": 3,
+  "published": true,
+  "category": "industrie",
+  "category_label": "Industrie",
+  "image": "https://static.wixstatic.com/media/51e772_a490df03503f447b85b77076a1253c68~mv2.jpg/v1/fill/w_980%2Ch_693%2Cal_c%2Cq_85%2Cusm_0.66_1.00_0.01%2Cenc_avif%2Cquality_auto/51e772_a490df03503f447b85b77076a1253c68~mv2.jpg",
+  "image_alt": "Team plaatst industriële betonvloer",
+  "fallback": "assets/images/hero-fallback.svg",
+  "spotlight": false,
+  "spotlight_heading": "Uitvoering voor intensief gebruik",
+  "spotlight_text": "Een grootschalige uitvoering waarbij voorbereiding, planning en werfcoördinatie centraal staan.",
+  "application": "Industriële site",
+  "finish": "Gepolierd",
+  "execution": "Careye betonteam"
+}

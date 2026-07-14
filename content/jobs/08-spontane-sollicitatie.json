@@ -1,0 +1,39 @@
+{
+  "title": "Spontane sollicitatie",
+  "slug": "spontane-sollicitatie",
+  "order": 8,
+  "published": true,
+  "category": "Vertel ons wat u kan",
+  "location": "Ieper, Geluwe of op de werf",
+  "employment_type": "In overleg",
+  "summary": "Geen passende vacature gezien, maar denkt u dat u bij Careye past? Bezorg ons dan gerust uw kandidatuur.",
+  "eyebrow": "Spontane sollicitatie",
+  "intro": "Niet elke goede samenwerking begint bij een openstaande vacature. Vertel ons waar u sterk in bent en welk type functie u zoekt.",
+  "image": "https://static.wixstatic.com/media/51e772_a490df03503f447b85b77076a1253c68~mv2.jpg/v1/fill/w_1400,h_900,al_c,q_85/51e772_a490df03503f447b85b77076a1253c68~mv2.jpg",
+  "image_alt": "Team van Betonwerken Careye",
+  "responsibilities_title": "Waar we vaak versterking zoeken",
+  "responsibilities": [
+    "Uitvoering en afwerking op de werf.",
+    "Werfopvolging en projectcoördinatie.",
+    "Calculatie, planning en werkvoorbereiding.",
+    "Transport, magazijn en logistieke ondersteuning.",
+    "Administratieve of technische ondersteuning."
+  ],
+  "profile_title": "Wat we graag van u vernemen",
+  "profile": [
+    "Welke ervaring en vaardigheden u meebrengt.",
+    "Naar welk type functie u op zoek bent.",
+    "In welke regio of vestiging u wil werken.",
+    "Vanaf wanneer u beschikbaar bent.",
+    "Waarom Careye u aanspreekt."
+  ],
+  "offer_title": "Wat u mag verwachten",
+  "offer": [
+    "Uw kandidatuur wordt rechtstreeks door HR bekeken.",
+    "U ontvangt een reactie wanneer er een passende mogelijkheid is.",
+    "Uw gegevens worden alleen gebruikt voor rekrutering.",
+    "Een eerste gesprek is altijd praktisch en persoonlijk."
+  ],
+  "closing_text": "Bezorg uw gegevens, motivatie en cv. HR bekijkt waar uw profiel binnen Careye kan passen.",
+  "button_label": "Stel u spontaan kandidaat"
+}

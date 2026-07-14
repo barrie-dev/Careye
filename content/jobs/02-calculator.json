@@ -1,0 +1,41 @@
+{
+  "title": "Calculator",
+  "slug": "calculator",
+  "order": 2,
+  "published": true,
+  "category": "Calculatie",
+  "location": "Geluwe",
+  "employment_type": "Voltijds",
+  "summary": "U analyseert aanvragen, verwerkt hoeveelheden en ondersteunt een correcte technische en commerciële voorbereiding.",
+  "eyebrow": "Vacature",
+  "intro": "Als calculator vertaalt u plannen, lastenboeken en meetstaten naar een onderbouwde kostprijs en een duidelijke offerte. Uw voorbereiding vormt de basis voor rendabele en technisch haalbare projecten.",
+  "image": "https://static.wixstatic.com/media/7c9e6b_43db7157ce3a4332bc33e7a57a77c7f1~mv2.jpg/v1/fill/w_1400,h_900,al_c,q_85/studio_VOLT-09264.jpg",
+  "image_alt": "Afgewerkte industriële betonvloer van Careye",
+  "responsibilities_title": "Uw taken",
+  "responsibilities": [
+    "Plannen, lastenboeken en meetstaten analyseren.",
+    "Hoeveelheden berekenen en technische gegevens controleren.",
+    "Kostprijsberekeningen en prijsoffertes uitwerken.",
+    "Prijzen opvragen bij leveranciers en onderaannemers.",
+    "Meedenken over uitvoeringsmethodes en optimalisaties.",
+    "Goedgekeurde dossiers duidelijk overdragen aan de projectleiding."
+  ],
+  "profile_title": "Wie we zoeken",
+  "profile": [
+    "U hebt een bouwtechnische opleiding of gelijkwaardige ervaring.",
+    "U werkt nauwkeurig, analytisch en gestructureerd.",
+    "U communiceert vlot met collega’s, leveranciers en klanten.",
+    "Ervaring met calculatie in de bouwsector is een sterke meerwaarde.",
+    "U combineert technisch inzicht met commercieel bewustzijn."
+  ],
+  "offer_title": "Wat Careye biedt",
+  "offer": [
+    "Een gevarieerde functie in een gespecialiseerde bouwomgeving.",
+    "Directe betrokkenheid bij de voorbereiding en groei van projecten.",
+    "Een open cultuur met korte communicatielijnen.",
+    "Een competitieve verloning met extralegale voordelen.",
+    "Ruimte voor opleiding, initiatief en verdere ontwikkeling."
+  ],
+  "closing_text": "Ziet u zichzelf mee de basis leggen voor sterke betonprojecten? Solliciteer via het formulier.",
+  "button_label": "Bekijk de vacature"
+}

@@ -1,0 +1,17 @@
+{
+  "title": "Particuliere betonwerken",
+  "slug": "particuliere-werken",
+  "order": 5,
+  "published": true,
+  "show_on_home": false,
+  "short_title": "Particuliere betonwerken",
+  "short_text": "Betonoplossingen voor woningen, private buitenruimtes, opritten, terrassen en binnenvloeren.",
+  "index_label": "Particuliere werken",
+  "description_1": "Ook voor woningen en private buitenruimtes biedt Careye oplossingen op maat. Denk aan terrassen, tuinpaden, opritten, binnenvloeren en zichtbare betontoepassingen.",
+  "description_2": "We bekijken samen welke uitvoering technisch past bij de ondergrond, het gebruik en de gewenste look.",
+  "image": "https://static.wixstatic.com/media/51e772_dfe9efe4053c45ce95fa8ed46f5a4d33~mv2.jpeg/v1/fill/w_490%2Ch_368%2Cal_c%2Cq_80%2Cusm_0.66_1.00_0.01%2Cenc_avif%2Cquality_auto/51e772_dfe9efe4053c45ce95fa8ed46f5a4d33~mv2.jpeg",
+  "image_alt": "Particuliere betonwerken",
+  "fallback": "assets/images/terrace-fallback.svg",
+  "features": ["Woningen", "Binnenvloeren", "Buitenruimtes", "Kleur en afwerking"],
+  "button_label": "Vraag advies"
+}

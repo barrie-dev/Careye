@@ -1,0 +1,17 @@
+{
+  "title": "Terrassen en buitenvloeren",
+  "slug": "buitenaanleg",
+  "order": 3,
+  "published": true,
+  "show_on_home": true,
+  "short_title": "Terrassen en buitenvloeren",
+  "short_text": "Beton in tegellook, geborstelde afwerking en andere duurzame oplossingen voor buiten.",
+  "index_label": "Buitenaanleg",
+  "description_1": "Beton is een sterke basis voor terrassen, opritten, toegangen en functionele buitenzones. Door kleur, structuur en zaagsneden te combineren kan een sobere betonvloer ook een uitgesproken architecturale uitstraling krijgen.",
+  "description_2": "Een uitvoering in tegellook biedt de visuele ritmiek van grote tegels, zonder de klassieke opbouw met losse elementen.",
+  "image": "https://static.wixstatic.com/media/51e772_dfe9efe4053c45ce95fa8ed46f5a4d33~mv2.jpeg/v1/fill/w_490%2Ch_368%2Cal_c%2Cq_80%2Cusm_0.66_1.00_0.01%2Cenc_avif%2Cquality_auto/51e772_dfe9efe4053c45ce95fa8ed46f5a4d33~mv2.jpeg",
+  "image_alt": "Betonnen terras en buitenvloer",
+  "fallback": "assets/images/terrace-fallback.svg",
+  "features": ["Tegellook", "Geborsteld beton", "Opritten", "Terrassen"],
+  "button_label": "Bespreek uw buitenproject"
+}
